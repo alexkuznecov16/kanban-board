@@ -1,0 +1,262 @@
+/* App.css */
+.Kanban-Board {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.Kanban-Board__header {
+    background-color: #0067a3;
+    color: #fff;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    height: 55px;
+}
+
+.Kanban-Board__header-title {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 3.3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Kanban-Board__header-profile {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.Kanban-Board__header-profile--inner {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.Kanban-Board__header-profile--inner img {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.Kanban-Board__header-profile--dropdown {
+    position: absolute;
+    background-color: transparent;
+    color: #000;
+    top: 60px;
+    right: 50px;
+    z-index: 40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 12px;
+    border-radius: 20px;
+}
+
+.Kanban-Board__header-profile--dropdown-block {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    border-radius: 20px;
+}
+
+.Kanban-Board__header-profile--dropdown-block p {
+    cursor: pointer;
+    margin: 15px 0;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+}
+
+.Kanban-Board__header-profile--dropdown img {
+    width: 40px;
+}
+
+.Kanban-Board__header-profile:hover .Kanban-Board__header-profile--dropdown {
+    display: block;
+}
+
+.Kanban-Board__main {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: calc(100vh - 110px);
+    padding: 20px 16px;
+    background-color: #0078d4;
+    flex-wrap: wrap;
+    gap: 3px;
+    position: relative;
+}
+
+.Kanban-Board__main > div {
+    border: 1px solid #ccc;
+    width: 282px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #ebecf0;
+    height: fit-content;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.Kanban-Board__main-Backlog,
+.Kanban-Board__main-Ready,
+.Kanban-Board__main-InProgress,
+.Kanban-Board__main-Finished {
+    position: relative;
+}
+
+.Kanban-Board__main > div p {
+    background: #ffffff;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.9px;
+    padding: 7px 9px;
+    margin: 15px 0;
+    cursor: pointer;
+    overflow-wrap: break-word;
+}
+
+.Kanban-Board__main > div > span {
+    display: block;
+}
+
+.Kanban-Board__main div:first-child > span {
+    margin-bottom: 10px;
+}
+
+.Kanban-Board__main > div p select option {
+    cursor: pointer;
+    width: 100%;
+}
+
+.Kanban-Board__main > div p select {
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.9px;
+    overflow-wrap: break-word;
+}
+
+.Kanban-Board__main > div input {
+    background: #ffffff;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.9px;
+    padding: 7px 9px;
+    width: 100%;
+}
+
+.Kanban-Board__main > div button {
+    background-color: transparent;
+    color: #5e6c84;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: left;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 17px;
+}
+
+.Kanban-Board__main > div button:hover {
+    background-color: #fff;
+}
+
+button.active {
+    background-color: #0079bf !important;
+    text-align: center !important;
+    color: #fff !important;
+}
+
+.Kanban-Board__footer {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    height: 55px;
+    background-color: #0067a3;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.Kanban-Board__footer-details,
+.Kanban-Board__footer-author {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    align-items: center;
+}
+
+.Kanban-Board__footer-author {
+    font-size: 14px;
+}
+@media screen and (max-width: 600px) {
+    .Kanban-Board__main {
+        height: 100%;
+        gap: 20px;
+    }
+    .Kanban-Board__header-title {
+        font-size: 16px;
+    }
+    .Kanban-Board__footer-details,
+    .Kanban-Board__footer-author {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .Kanban-Board__header-title {
+        font-size: 13px;
+        line-height: 1;
+    }
+    .Kanban-Board__footer-details,
+    .Kanban-Board__footer-author {
+        font-size: 12px;
+    }
+
+    .Kanban-Board__header-profile--inner img {
+        width: 30px;
+        height: 30px;
+    }
+    .Kanban-Board__header-profile--dropdown {
+        right: 39px;
+    }
+}
+
+@media screen and (max-width: 270px) {
+    .Kanban-Board__header-title {
+        font-size: 11px;
+    }
+    .Kanban-Board__header {
+        padding: 0 10px;
+    }
+    .Kanban-Board__header-profile--dropdown {
+        right: 29px;
+    }
+    .Kanban-Board__footer-details,
+    .Kanban-Board__footer-author {
+        line-height: 15px;
+        font-size: 10px;
+        gap: 15px;
+    }
+}

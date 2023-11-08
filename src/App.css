@@ -210,6 +210,8 @@ button.active {
 .Kanban-Board__footer-author {
     font-size: 14px;
 }
+
+/*! Styles for media screens */
 @media screen and (max-width: 600px) {
     .Kanban-Board__main {
         height: 100%;

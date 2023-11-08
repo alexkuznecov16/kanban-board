@@ -237,7 +237,7 @@ const App = () => {
         <div className='Kanban-Board'>
             <BoardHeader arrow__icon={arrow__icon} isMenuOpen={isMenuOpen} profile__icon={profile__icon} toggleMenu={toggleMenu} />
             <div className='Kanban-Board__main'>
-                {taskIsOpen ? <TaskDetails closeTask={closeTask} setTaskInfo={setTaskInfo} setTaskTitle={setTaskTitle} taskInfo={taskInfo} taskTitle={taskTitle} /> : null}
+                <Link to={`/roster/`}>{taskIsOpen ? <TaskDetails closeTask={closeTask} setTaskInfo={setTaskInfo} setTaskTitle={setTaskTitle} taskInfo={taskInfo} taskTitle={taskTitle} /> : null}</Link>
                 <div className='Kanban-Board__main-Backlog'>
                     <span>Backlog</span>
                     {appData[0].map((task, index) => (

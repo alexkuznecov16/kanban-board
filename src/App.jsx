@@ -227,6 +227,14 @@ const App = () => {
     };
     ///////////////////////////////////////////////////////////////////
 
+    // function delete app data task
+    const deleteTask = (taskId, columnIndex) => {
+        const updatedAppData = [...appData];
+        updatedAppData[columnIndex] = updatedAppData[columnIndex].filter((task) => task.id !== taskId);
+        setAppData(updatedAppData);
+    };
+    ///////////////////////////////////////////////////////////////////
+
     useEffect(() => {
         // Save tasks in local storage
         saveDataToLocalStorage(appData);
@@ -240,7 +248,7 @@ const App = () => {
                         <div className='Kanban-Board__main-Backlog'>
                             <span>Backlog</span>
                             {appData[0].map((task, index) => (
-                                <TaskCard openTask={openTask} task={task} index={index} />
+                                <TaskCard appData={appData} openTask={openTask} task={task} index={index} deleteTask={() => deleteTask(task.id, 0)}  />
                             ))}
                             {isAddingCard ? <input id={`task-${taskId}`} type='text' placeholder='Task title...' value={newTaskTitle} onChange={(e) => setNewTaskTitle(e.target.value)} /> : ''}
                             {isAddingCard ? <ButtonSubmit setNewTask={setNewTask} taskColumn={0} /> : <button onClick={() => setIsAddingCard(true)}>+ Add card</button>}
@@ -248,7 +256,7 @@ const App = () => {
                         <div className='Kanban-Board__main-Ready'>
                             <span>Ready</span>
                             {appData[1].map((task, index) => (
-                                <TaskCard openTask={openTask} task={task} index={index} />
+                                <TaskCard appData={appData} openTask={openTask} task={task} index={index} deleteTask={() => deleteTask(task.id, 1)} />
                             ))}
                             {isSelectVisible.Ready ? <SelectCardForm taskColumnNum={1} appData={appData} taskColumn={'Ready'} /> : null}
                             {isBtnActive.Ready ? <ButtonSubmit setNewTask={setNewTask} taskColumn={1} /> : <button onClick={() => addFunc('Ready')}>+ Add card</button>}
@@ -256,7 +264,7 @@ const App = () => {
                         <div className='Kanban-Board__main-InProgress'>
                             <span>In Progress</span>
                             {appData[2].map((task, index) => (
-                                <TaskCard openTask={openTask} task={task} index={index} />
+                                <TaskCard appData={appData} openTask={openTask} task={task} index={index} deleteTask={() => deleteTask(task.id, 2)} />
                             ))}
                             {isSelectVisible.InProgress ? <SelectCardForm taskColumnNum={2} appData={appData} taskColumn={'InProgress'} /> : null}
                             {isBtnActive.InProgress ? <ButtonSubmit setNewTask={setNewTask} taskColumn={2} /> : <button onClick={() => addFunc('InProgress')}>+ Add card</button>}
@@ -264,7 +272,7 @@ const App = () => {
                         <div className='Kanban-Board__main-Finished'>
                             <span>Finished</span>
                             {appData[3].map((task, index) => (
-                                <TaskCard openTask={openTask} task={task} index={index}/>
+                                <TaskCard appData={appData} openTask={openTask} task={task} index={index} deleteTask={() => deleteTask(task.id, 3)}/>
                             ))}
                             {isSelectVisible.Finished ? <SelectCardForm taskColumnNum={3} appData={appData} taskColumn={'Finished'} /> : null}
                             {isBtnActive.Finished ? <ButtonSubmit setNewTask={setNewTask} taskColumn={3} /> : <button onClick={() => addFunc('Finished')}>+ Add card</button>}
@@ -274,5 +282,6 @@ const App = () => {
                 </div>
     );
 };
+
 
 export default App;

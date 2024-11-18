@@ -1,11 +1,12 @@
 import React from 'react';
 
 const BoardFooter = ({ appData }) => {
-    const year = new Date().getFullYear()
+    const year = new Date().getFullYear();
+    console.log(appData)
     return (
         <div className='Kanban-Board__footer'>
             <div className='Kanban-Board__footer-details'>
-                <span>Active tasks: {appData[0].length}</span>
+                <span>Active tasks: {appData[1].length + appData[2].length}</span>
                 <span>Finished tasks: {appData[3].length}</span>
             </div>
             <div className='Kanban-Board__footer-author'>
